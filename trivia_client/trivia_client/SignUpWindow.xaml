@@ -1,0 +1,70 @@
+﻿<Window x:Class="trivia_client.SignUpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:trivia_client"
+        mc:Ignorable="d"
+        Title="SignUpWindow" Height="550" Width="800">
+    <Grid Margin="0,0,0,-16">
+
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="399*"/>
+            <ColumnDefinition Width="401*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <PasswordBox x:Name="PasswordBox" FontFamily="Resources/Fonts/QuickSand.ttf" FontSize="19" HorizontalAlignment="Left" Margin="266,267,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="268" Height="25" Grid.ColumnSpan="2" BorderBrush="#FFABADB3" Background="{x:Null}" Foreground="Black" SelectionBrush="#FF0078D7"/>
+
+
+        <TextBox x:Name="UsernameBox" HorizontalAlignment="Left" FontFamily="Resources/Fonts/QuickSand.ttf" FontSize="19"  TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="26" Grid.Row="1" Margin="266,206,0,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.501,0.519" Background="{x:Null}"/>
+
+        <Image  Source="Resources/Images/Logo.png" HorizontalAlignment="Left" Height="133" Margin="341,24,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+
+        <Button Name="Signup_Button"  HorizontalAlignment="Left" Margin="349,454,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Height="22" Width="102" Grid.ColumnSpan="2" Click="Signup_Button_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="TextElement.FontFamily" Value="Resources/Fonts/#QuickSand.ttf"/>
+                    <Setter Property="Background" Value="#C9AdA7"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#9A8C98"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate>
+                    <Border Height="25" CornerRadius="7" Background="{TemplateBinding Background}" Margin="-66,-30,-44,1" RenderTransformOrigin="0.5,0.5">
+                        <Label Content="Sign Up" FontFamily="Resources/Fonts/#QuickSand.ttf"  FontSize="14" FontWeight="Medium" Foreground="White" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Rectangle Fill="#22223B" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="19" Grid.RowSpan="2" Stroke="Black" VerticalAlignment="Top" Width="800"/>
+        <Button Name="EndRunningButton" Click="EndRunning"  FontSize="18" BorderThickness="0" Background="Transparent" Content="X" Foreground="White" Grid.Column="1"  Margin="377,-2,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Height="21" RenderTransformOrigin="0.49,0.333"/>
+        <Label Content="Email:" FontFamily="Resource/Fonts/QuickSand.ttf" Foreground="Black" FontSize="17" HorizontalAlignment="Left" Margin="266,357,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="58" Height="26" Background="#00000000">
+            <Label.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.BorderBrush>
+        </Label>
+        <Label Content="Username:" FontFamily="Resources/Fonts/QuickSand.ttf" Foreground="black" FontSize="17" HorizontalAlignment="Left" Margin="266,176,0,0" Grid.RowSpan="2" VerticalAlignment="Top"/>
+        <Label Content="Password:" FontFamily="Resources/Fonts/QuickSand.ttf" Foreground="black" FontSize="17" HorizontalAlignment="Left" Margin="266,232,0,0" Grid.RowSpan="2" VerticalAlignment="Top"/>
+        <Label Content="Renter Password:" FontFamily="Resources/Fonts/QuickSand.ttf" Foreground="black" FontSize="17" HorizontalAlignment="Left" Margin="266,297,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Grid.ColumnSpan="2" RenderTransformOrigin="0.473,0.578"/>
+        <PasswordBox x:Name="RePasswordBox" FontFamily="Resources/Fonts/QuickSand.ttf" FontSize="19" HorizontalAlignment="Left" Margin="266,327,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="268" Height="30" Grid.ColumnSpan="2" BorderBrush="#FFABADB3" Background="{x:Null}" Foreground="Black" SelectionBrush="#FF0078D7"/>
+        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="266,388,0,0" Grid.RowSpan="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Grid.ColumnSpan="2" Height="33" SelectionBrush="#FF0078D7" Foreground="Black" Background="{x:Null}" FontSize="19"/>
+        <Label Name="MessageLabelSignup" Content="" HorizontalContentAlignment="Center" FontFamily="Resources/Fonts/QuickSand.ttf" Foreground="DarkRed" FontSize="17" HorizontalAlignment="Left" Margin="240,371,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="350"/>
+
+    </Grid>
+</Window>

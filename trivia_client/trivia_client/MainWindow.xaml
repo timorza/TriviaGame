@@ -1,0 +1,82 @@
+﻿<Window x:Class="trivia_client.MainWindow"
+        KeyDown="retryCommunication"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:trivia_client"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="800">
+    <Grid Margin="0,0,0,-16">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="399*"/>
+            <ColumnDefinition Width="401*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <PasswordBox x:Name="PasswordBox" FontFamily="Resources/Fonts/QuickSand.ttf" FontSize="19" HorizontalAlignment="Left" Margin="266,270,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="268" Height="25" Grid.ColumnSpan="2"/>
+
+        <TextBox x:Name="UsernameBox" HorizontalAlignment="Left" FontFamily="Resources/Fonts/QuickSand.ttf" FontSize="19"  TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Height="26" Grid.Row="1" Margin="266,216,0,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.501,0.519"/>
+
+
+        <Button Click="Login_Click" Name="Login_Button" HorizontalAlignment="Left" Margin="356,368,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Height="22" Width="102" Grid.ColumnSpan="2">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="TextElement.FontFamily" Value="Fonts/#QuickSand.ttf"/>
+                    <Setter Property="Background" Value="#C9AdA7"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#9A8C98"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate>
+                    <Border Height="25" CornerRadius="7" Background="{TemplateBinding Background}" Margin="-66,-30,-44,1" RenderTransformOrigin="0.5,0.5">
+                        <Label Content="Login" FontFamily="Resources/Fonts/#QuickSand.ttf"  FontSize="14" FontWeight="Medium" Foreground="White" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Image  Source="Resources/Images/Logo.png" HorizontalAlignment="Left" Height="133" Margin="341,48,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+
+        <Button Click="Signup_Click" Name="Signup_Button"  HorizontalAlignment="Left" Margin="356,418,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Height="22" Width="102" Grid.ColumnSpan="2">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="TextElement.FontFamily" Value="Resources/Fonts/#QuickSand.ttf"/>
+                    <Setter Property="Background" Value="#C9AdA7"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#9A8C98"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate>
+                    <Border Height="25" CornerRadius="7" Background="{TemplateBinding Background}" Margin="-66,-30,-44,1" RenderTransformOrigin="0.5,0.5">
+                        <Label Content="Sign Up" FontFamily="Resources/Fonts/#QuickSand.ttf"  FontSize="14" FontWeight="Medium" Foreground="White" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Rectangle Fill="#22223B" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="19" Grid.RowSpan="2" Stroke="Black" VerticalAlignment="Top" Width="800"/>
+        <Button Name="EndRunningButton" Click="EndRunning"  FontSize="18" BorderThickness="0" Background="Transparent" Content="X" Foreground="White" Grid.Column="1"  Margin="377,-2,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Height="21" RenderTransformOrigin="0.49,0.333"/>
+        <Label Content="" FontFamily="Resource/Fonts/QuickSand.ttf" Foreground="black" HorizontalAlignment="Left" Margin="266,309,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="268" Grid.ColumnSpan="2" Height="26"/>
+        <Label Content="Username:" FontFamily="Resources/Fonts/QuickSand.ttf" Foreground="black" FontSize="17" HorizontalAlignment="Left" Margin="266,181,0,0" Grid.RowSpan="2" VerticalAlignment="Top"/>
+        <Label Content="Password:" FontFamily="Resources/Fonts/QuickSand.ttf" Foreground="black" FontSize="17" HorizontalAlignment="Left" Margin="266,240,0,0" Grid.RowSpan="2" VerticalAlignment="Top"/>
+        <Label Name="MessageLabelMain" Content="" FontSize="17" FontFamily="Resource/Fonts/QuickSand.ttf" Foreground="DarkRed" HorizontalAlignment="Left" Margin="212,300,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="388" Grid.ColumnSpan="2" Height="33" HorizontalContentAlignment="Center"/>
+
+    </Grid>
+</Window>
