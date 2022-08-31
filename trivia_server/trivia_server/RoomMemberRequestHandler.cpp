@@ -13,7 +13,7 @@ RoomMemberRequestHandler::RoomMemberRequestHandler(string username, Room userRoo
 
 bool RoomMemberRequestHandler::isRequestRelevant(RequestInfo info)
 {
-    return (info.requestId == START_GAME_REQUEST || info.requestId == STATE_ROOM_REQUEST || info.requestId == LEAVE_ROOM_REQUEST);
+	return info.requestId == LEAVE_ROOM_REQUEST || info.requestId == START_GAME_REQUEST || info.requestId == STATE_ROOM_REQUEST || info.requestId == GET_PLAYERS_REQUEST;
 }
 
 RequestResult RoomMemberRequestHandler::handleRequest(RequestInfo info)
@@ -30,7 +30,9 @@ RequestResult RoomMemberRequestHandler::handleRequest(RequestInfo info)
 		break;
 	case STATE_ROOM_REQUEST:
 		myResult = getRoomState();
-		myResult.newHandler = RequestHandlerFactory::createRoomMemberRequestHandler(m_user->getUsername(), *m_room);
+		break;
+	case GET_PLAYERS_REQUEST:
+		myResult = RoomAdminRequestHandler::getPlayersInRoom(info, true, this->m_user->getUsername(), *m_room);
 		break;
 	default:
 		myResult.newHandler = nullptr;
@@ -40,7 +42,6 @@ RequestResult RoomMemberRequestHandler::handleRequest(RequestInfo info)
 
 	return myResult;
 }
-
 RequestResult RoomMemberRequestHandler::startGame()
 {
 	RequestResult myResult;
@@ -48,7 +49,7 @@ RequestResult RoomMemberRequestHandler::startGame()
 	response.status = SUCCESS_CODE;
 	myResult.buffer = JsonResponsePacketSerializer::serializeResponse(response);
 	myResult.newHandler = RequestHandlerFactory::createGameRequestHandler(this->m_user->getUsername(), this->m_room->getData().id, NULL);
-	
+
 	return myResult;
 }
 
@@ -67,7 +68,7 @@ RequestResult RoomMemberRequestHandler::getRoomState()
 	}
 	myResult.buffer = JsonResponsePacketSerializer::serializeResponse(response);
 	myResult.newHandler = RequestHandlerFactory::createRoomMemberRequestHandler(this->m_user->getUsername(), *m_room);
-	
+
 	return myResult;
 }
 RequestResult RoomMemberRequestHandler::leaveGame()
@@ -78,6 +79,6 @@ RequestResult RoomMemberRequestHandler::leaveGame()
 	myResult.newHandler = RequestHandlerFactory::createMenuRequestHandler(m_user->getUsername());
 	response.status = SUCCESS_CODE;
 	myResult.buffer = JsonResponsePacketSerializer::serializeResponse(response);
-	
+
 	return myResult;
 }
