@@ -173,7 +173,7 @@ std::vector<Question> SqliteDataBase::getQuestions(string difficulty, unsigned i
 	clearQuestions();
 
 	sqlite3_stmt* stmt;
-	std::vector<Question>numOfQuestions;
+	std::vector<Question>wquestions;
 
 	if (difficulty == "Mix")
 		stmt = getStmt("select * from questions order by random();");
@@ -188,10 +188,10 @@ std::vector<Question> SqliteDataBase::getQuestions(string difficulty, unsigned i
 
 	for (int i = 0; i < numOfQuestuions; i++)
 	{
-		numOfQuestions.push_back(questions[i]);
+		wquestions.push_back(questions[i]);
 	}
 
-	return numOfQuestions;
+	return wquestions;
 }
 
 float SqliteDataBase::getPlayerAverageAnswerTime(std::string username)
